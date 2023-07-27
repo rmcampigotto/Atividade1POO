@@ -1,3 +1,5 @@
+package Pessoa;
+
 import java.security.PublicKey;
 import java.util.Date;
 
@@ -20,8 +22,8 @@ public class Pessoa {
         this.nome = novoNome;
     }
 
-    public Integer setIdade(Integer novaIdade){
-        this.idade = novaIdade;
+    public Integer setIdade(Integer newAge){
+        this.idade = newAge;
         return this.idade;
     }
 
