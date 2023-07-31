@@ -5,10 +5,13 @@ public class Main {
 
         Pessoa aluno = new Pessoa();
 
-        aluno.setIdade(10);
-        aluno.setNome("Caetano");
+        aluno.setAge(10);
+        aluno.setName("Caetano");
+        aluno.setBornDate(2010, 8,16); // JULHO = 8 (os meses são +1)
 
-        System.out.println(aluno.getNome());
+        System.out.println("Name: "+ aluno.getName() +
+                           "\nAge: " + aluno.getAge() +
+                           "\nBorn Date: " + aluno.formatter.format(aluno.getBornDate()));
 
     }
 }

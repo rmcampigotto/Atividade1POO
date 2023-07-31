@@ -1,47 +1,56 @@
 package Pessoa;
 
 import java.security.PublicKey;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Pessoa {
 
-    private String nome;
-    private Date dataNascimento;
-    private Integer idade;
+    private String name;
+    private Date bornDate;
+    public SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    private Integer age;
 
     public Pessoa(){
     }
 
-    public Pessoa(String novoNome, Date novaData, Integer novaIdade){
-        this.nome = novoNome;
-        this.dataNascimento = novaData;
-        this.idade = novaIdade;
+    public Pessoa(String newName, Date newDate, Integer newAge){
+        this.name = newName;
+        this.bornDate = newDate;
+        this.age = newAge;
     }
 
-    public Pessoa(String novoNome){
-        this.nome = novoNome;
+    public Pessoa(String newName){
+        this.name = newName;
     }
 
-    public Integer setIdade(Integer newAge){
-        this.idade = newAge;
-        return this.idade;
+    public Integer setAge(Integer newAge){
+        this.age = newAge;
+        return this.age;
     }
 
-    public String setNome(String novoNome){
-        this.nome = novoNome;
-        return this.nome;
+    public String setName(String newName){
+        this.name = newName;
+        return this.name;
     }
 
-    public String getNome(){
-        return this.nome;
+    public String getName(){
+        return this.name;
     }
 
-    public Date getDataNascimento(){
-        return this.dataNascimento;
+    public Date setBornDate(Integer year, Integer month, Integer date){
+        this.bornDate = new Date(year - 1900, month, date);
+        return this.bornDate;
     }
 
-    public  Integer getIdade(){
-        return this.idade;
+    public Date getBornDate(){
+        return this.bornDate;
+    }
+
+    public Integer getAge(){
+        return this.age;
     }
 
 }
