@@ -11,7 +11,7 @@ public class Main {
 
         //variables
         String name;
-        int year, month, date, choice;
+        int year, month, date, choice, choice2;
 
         choice = parseInt(JOptionPane.showInputDialog("1.Show default values\n2.Show custom values\nChoose: "));
 
@@ -21,19 +21,24 @@ public class Main {
             aluno.setName("Caetano");
         }
         else {
-
             name = JOptionPane.showInputDialog("Type the name:");
             year = parseInt(JOptionPane.showInputDialog("Type the Born Year:"));
             month = (parseInt(JOptionPane.showInputDialog("Type the Born Month:")) - 1);
             date = parseInt(JOptionPane.showInputDialog("Type the Born Date:"));
 
-            aluno.setBornDate(year, month, date);
-            aluno.setAge(cal.get(Calendar.YEAR) - year);
-            aluno.setName(name);
+            if ((choice2 = JOptionPane.showConfirmDialog(null, "Confirm the alterations?")) == 0) {
+                aluno.setBornDate(year, month, date);
+                aluno.setAge(cal.get(Calendar.YEAR) - year);
+                aluno.setName(name);
+            }else {
+                aluno.setBornDate(2010, 6,16); // JULHO = 6 (os meses são -1)
+                aluno.setAge(cal.get(Calendar.YEAR) - 2010);
+                aluno.setName("Caetano");
+            }
         }
-        JOptionPane.showMessageDialog(null, "CUSTOM INFOS\nName: "+ aluno.getName() +
-                "\nAge: " + aluno.getAge() +
-                "\nBorn Date: " + aluno.formatter.format(aluno.getBornDate()));
+        JOptionPane.showMessageDialog(null, "NAME: "+ aluno.getName() +
+                "\nAGE: " + aluno.getAge() +
+                "\nBORN DATE: " + aluno.formatter.format(aluno.getBornDate()), "INFO'S", 1);
 
     }
 }
